@@ -1,0 +1,50 @@
+<h2>Lista de Pessoas</h2>
+
+@for (resultado of resultados; track resultado.pessoa.id) {
+
+  <div
+    class="card"
+    [class.invalido]="resultado.erros.length > 0"
+  >
+
+    <h3>{{ resultado.pessoa.nome }}</h3>
+
+    <p>Curso: {{ resultado.pessoa.curso }}</p>
+
+    <p>Email: {{ resultado.pessoa.email }}</p>
+
+    <p>Vínculo: {{ resultado.pessoa.vinculo }}</p>
+
+    @if (resultado.pessoa.telefone) {
+      <p>Telefone: {{ resultado.pessoa.telefone }}</p>
+    } @else {
+      <p>Telefone: Não informado</p>
+    }
+
+    @if (resultado.pessoa.ativo) {
+      <p>Status: Ativo</p>
+    } @else {
+      <p>Status: Inativo</p>
+    }
+
+    @if (resultado.erros.length > 0) {
+
+      <div class="erros">
+
+        <strong>Erros encontrados:</strong>
+
+        @for (erro of resultado.erros; track erro) {
+          <p>{{ erro }}</p>
+        }
+
+      </div> 
+
+    }
+
+  </div>
+
+} @empty {
+
+  <p>Nenhuma pessoa cadastrada.</p>
+
+}

@@ -1,0 +1,196 @@
+<div class="container">
+
+  <header class="cabeca">
+    <h2>Cadastro de Pessoa</h2>
+    <p>Preencha os dados da pessoa.</p>
+  </header>
+
+  <form class="ficha" (ngSubmit)="salvar()" #form="ngForm">
+
+    <!-- IDENTIFICAÇÃO -->
+    <fieldset>
+      <legend>Identificação</legend>
+
+      <div class="campo">
+        <label for="nome">Nome completo</label>
+
+        <input
+          id="nome"
+          name="nome"
+          type="text"
+          [(ngModel)]="nome"
+          required
+        >
+      </div>
+
+      <div class="campo">
+        <label for="dataNascimento">Data de nascimento</label>
+
+        <input
+          id="dataNascimento"
+          name="dataNascimento"
+          type="date"
+          [(ngModel)]="dataNascimento"
+          required
+        >
+      </div>
+
+
+      <div class="campo">
+        <label for="cpf">CPF</label>
+
+        <input
+          id="cpf"
+          name="cpf"
+          type="text"
+          placeholder="000.000.000-00"
+          [(ngModel)]="cpf"
+        >
+      </div>
+
+      <div class="campo">
+        <label for="rg">RG</label>
+
+        <input
+          id="rg"
+          name="rg"
+          type="text"
+          placeholder="00000000000"
+          [(ngModel)]="rg"
+        >
+      </div>
+
+      <div class="campo">
+        <label for="nomedopai">Nome do pai</label>
+
+        <input
+          id="nomedopai"
+          name="nomedopai"
+          type="text"
+          [(ngModel)]="nomedopai"
+          required
+        >
+      </div>
+
+      <div class="campo">
+        <label for="nomedamae">Nome da mãe</label>
+
+        <input
+          id="nomedamae"
+          name="nomedamae"
+          type="text"
+          [(ngModel)]="nomedamae"
+          required
+        >
+      </div>
+
+      <div class="campo">
+        <label for="pais">País</label>
+
+        <select
+          id="pais"
+          name="pais"
+          [(ngModel)]="pais"
+          required
+        >
+          <option value="">Selecione...</option>
+          <option value="brasil">Brasil</option>
+          <option value="franca">França</option>
+          <option value="italia">Itália</option>
+          <option value="egito">Egito</option>
+          <option value="grecia">Grécia</option>
+          <option value="roma">Roma</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label for="UForigem">UF de origem</label>
+
+        <select
+          id="UForigem"
+          name="UForigem"
+          [(ngModel)]="UForigem"
+          required
+        >
+          <option value="">Selecione...</option>
+          <option value="BA">BA</option>
+          <option value="RJ">RJ</option>
+          <option value="SP">SP</option>
+          <option value="SE">SE</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label for="cidade">Cidade</label>
+
+        <select
+          id="cidade"
+          name="cidade"
+          [(ngModel)]="cidade"
+          required
+        >
+          <option value="">Selecione...</option>
+          <option value="salvador">Salvador</option>
+          <option value="rio_de_janeiro">Rio de Janeiro</option>
+          <option value="sao_paulo">São Paulo</option>
+          <option value="aracaju">Aracaju</option>
+        </select>
+      </div>
+
+    </fieldset>
+
+     <fieldset>
+      <legend>dados de contatos</legend>
+
+     <div class="campo">
+        <label for="email">E-mail</label>
+
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="nome@exemplo.com"
+          [(ngModel)]="email"
+          required
+        >
+
+        <small>
+          Informe um e-mail válido.
+        </small>
+      </div>
+
+      <div class="campo">
+        <label for="telefone">Telefone</label>
+
+        <input
+          id="telefone"
+          name="telefone"
+          type="text"
+          placeholder="(71) 90000-0000"
+          [(ngModel)]="telefone"
+        >
+      </div>
+    </fieldset>
+
+    <!-- BOTÕES -->
+    <div class="acoes">
+
+      <button
+        type="submit"
+        [disabled]="form.invalid"
+      >
+        Salvar
+      </button>
+
+      <button
+        type="button"
+        (click)="form.resetForm()"
+      >
+        Limpar
+      </button>
+
+    </div>
+
+  </form>
+
+</div>
